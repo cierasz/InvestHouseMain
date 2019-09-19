@@ -1,0 +1,476 @@
+<html>
+
+<head>
+
+    <title>Invest House Developer - Budujemy Twoje Marzenia.</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="developer kraków,deweloper kraków,mieszkania kraków,apartamenty kraków,kraków mieszkania,kraków apratamenty,parkeko, parkeko Niepołomice,jurajskie wzgórze, jurajskie wzgórze bibice, domy Niepołomice, domy bibice, nowe domy, nowe nieruchomości, nieruchomości, nowy dom"
+    />
+    <meta name="description" content="Invest House to znany krakowski developer, który buduje nowe domy i mieszkania w Krakowie, okolicach oraz innych częściach Polski. Zapraszamy do zapoznania się z aktualną ofertą na nowe nieruchomości ( domy oraz mieszkania ) które znajdują się w ofercie spółki Invest House."
+    />
+    <meta name="content-language" content="polish" />
+    <meta name="coverage" content="worldwide" />
+
+    <meta name="Identifier-URL" content="www.invest-house.com.pl" />
+    <meta name="publisher" name="Invest House" />
+    <meta name="revisit-after" content="2 days" />
+    <meta name="robots" content="index,follow" />
+
+
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="lib/css/site.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="index" ng-app="investHouseMain" ng-controller="MainController" ng-cloak>
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" smooth-scroll target="top">
+                    <img src="img/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse ">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a ng-show="pl" class="page-scroll" smooth-scroll target="aboutus" offset="-30">O nas</a>
+                        <a ng-show="en" class="page-scroll" smooth-scroll target="aboutus" offset="-30">About us</a>
+                        <a ng-show="ua" class="page-scroll" smooth-scroll target="aboutus" offset="-30">Про нас</a>
+                    </li>
+                    <li>
+                        <a ng-show="pl" class="page-scroll" smooth-scroll target="invest-in-progress" offset="-40">Aktualna oferta</a>
+                        <a ng-show="en" class="page-scroll" smooth-scroll target="invest-in-progress" offset="-40">Our offer</a>
+                        <a ng-show="ua" class="page-scroll" smooth-scroll target="invest-in-progress" offset="-40">Наша пропозиція</a>
+                    </li>
+                    <li>
+                        <a ng-show="pl" class="page-scroll" smooth-scroll target="invest-done" offset="-30">Inwestycje zrealizowane</a>
+                        <a ng-show="en" class="page-scroll" smooth-scroll target="invest-done" offset="-30">Investments done</a>
+                        <a ng-show="ua" class="page-scroll" smooth-scroll target="invest-done" offset="-30">Завершені проекти</a>
+                    </li>
+                    <li>
+                        <a ng-show="pl" class="page-scroll" smooth-scroll target="news" offset="-30">Aktualności</a>
+                        <a ng-show="en" class="page-scroll" smooth-scroll target="news" offset="-30">News</a>
+                        <a ng-show="ua" class="page-scroll" smooth-scroll target="news" offset="-30">Новини</a>
+                    </li>
+                    <li>
+                        <a ng-show="pl" class="page-scroll" smooth-scroll target="contact" offset="-30">Kontakt</a>
+                        <a ng-show="en" class="page-scroll" smooth-scroll target="contact" offset="-30">Contact us</a>
+                        <a ng-show="ua" class="page-scroll" smooth-scroll target="contact" offset="-30">Контакт</a>
+                    </li>
+                    <li>
+                        <a ng-show="en || ua" class="navbar-brand" ng-click="changeLanguage('pl')">
+                            <img src="img/PL.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-show="pl || ua" class="navbar-brand" ng-click="changeLanguage('en')">
+                            <img src="img/EN.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-show="pl || en" class="navbar-brand" ng-click="changeLanguage('ua')">
+                            <img src="img/UA.png">
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+
+    <!--HEADER-->
+    <header class="jk-slider" id="top">
+        <div id="carousel-example" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a href="#">
+                        <img style="width:100%;" src="{{settings.backgroundImage}}" />
+                    </a>
+                    <div class="hero">
+                        <hgroup>
+                            <div class="container">
+                                <div class="intro-text">
+                                    <div class="intro-lead-in">
+                                        <span ng-show="pl" class="intro">{{settings.introLeadIn}}</span>
+                                        <span ng-show="en" class="intro">{{settings.introLeadInEn}}</span>
+                                        <span ng-show="ua" class="intro">{{settings.introLeadInUa}}</span>
+                                    </div>
+                                    <div class="intro-heading">
+                                        <span ng-show="pl" class="intro">{{settings.introHeading}}</span>
+                                        <span ng-show="en" class="intro">{{settings.introHeadingEn}}</span>
+                                        <span ng-show="ua" class="intro">{{settings.introHeadingUa}}</span>
+                                    </div>
+                                    <a ng-show="pl" smooth-scroll target="aboutus" offset="-30" class="page-scroll btn btn-xl intro">{{settings.introButtonText}}</a>
+                                    <a ng-show="en" smooth-scroll target="aboutus" offset="-30" class="page-scroll btn btn-xl intro">{{settings.introButtonTextEn}}</a>
+                                    <a ng-show="ua" smooth-scroll target="aboutus" offset="-30" class="page-scroll btn btn-xl intro">{{settings.introButtonTextUa}}</a>
+                                </div>
+                            </div>
+                        </hgroup>
+
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <img style="width:100%;" src="{{settings.backgroundImage1}}" />
+                    </a>
+                    <div class="hero">
+                        <hgroup>
+                            <div class="container">
+                                <div class="intro-text">
+                                    <div class="intro-lead-in">
+                                        <span ng-show="pl" class="intro">{{settings.introLeadIn}}</span>
+                                        <span ng-show="en" class="intro">{{settings.introLeadInEn}}</span>
+                                        <span ng-show="ua" class="intro">{{settings.introLeadInUa}}</span>
+                                    </div>
+                                    <div class="intro-heading">
+                                        <span ng-show="pl" class="intro">{{settings.introHeading}}</span>
+                                        <span ng-show="en" class="intro">{{settings.introHeadingEn}}</span>
+                                        <span ng-show="ua" class="intro">{{settings.introHeadingUa}}</span>
+                                    </div>
+                                    <a ng-show="pl" smooth-scroll target="aboutus" offset="-30" class="page-scroll btn btn-xl intro">{{settings.introButtonText}}</a>
+                                    <a ng-show="en" smooth-scroll target="aboutus" offset="-30" class="page-scroll btn btn-xl intro">{{settings.introButtonTextEn}}</a>
+                                    <a ng-show="ua" smooth-scroll target="aboutus" offset="-30" class="page-scroll btn btn-xl intro">{{settings.introButtonTextUa}}</a>
+                                </div>
+                            </div>
+                        </hgroup>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <img style="width:100%;" src="{{settings.backgroundImage2}}" />
+                    </a>
+                    <div class="hero">
+                        <hgroup>
+                            <div class="container">
+                                <div class="intro-text">
+                                    <div class="intro-lead-in">
+                                        <span ng-show="pl" class="intro">{{settings.introLeadIn}}</span>
+                                        <span ng-show="en" class="intro">{{settings.introLeadInEn}}</span>
+                                        <span ng-show="ua" class="intro">{{settings.introLeadInUa}}</span>
+                                    </div>
+                                    <div class="intro-heading">
+                                        <span ng-show="pl" class="intro">{{settings.introHeading}}</span>
+                                        <span ng-show="en" class="intro">{{settings.introHeadingEn}}</span>
+                                        <span ng-show="ua" class="intro">{{settings.introHeadingUa}}</span>
+                                    </div>
+                                    <a ng-show="pl" smooth-scroll target="aboutus" offset="-30" class="page-scroll btn btn-xl intro">{{settings.introButtonText}}</a>
+                                    <a ng-show="en" smooth-scroll target="aboutus" offset="-30" class="page-scroll btn btn-xl intro">{{settings.introButtonTextEn}}</a>
+                                    <a ng-show="ua" smooth-scroll target="aboutus" offset="-30" class="page-scroll btn btn-xl intro">{{settings.introButtonTextUa}}</a>
+                                </div>
+                            </div>
+                        </hgroup>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </header>
+
+    <!-- ABOUT US -->
+    <section id="aboutus">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-heading text-center">
+                        <span ng-show="pl">O nas</span>
+                        <span ng-show="en">About us</span>
+                        <span ng-show="ua">Про нас</span>
+                    </h2>
+                    <hr/>
+                    <ng-bind-html ng-show="pl" ng-bind-html="aboutUs.body"> </ng-bind-html>
+                    <ng-bind-html ng-show="en" ng-bind-html="aboutUs.bodyEn"> </ng-bind-html>
+                    <ng-bind-html ng-show="ua" ng-bind-html="aboutUs.bodyUa"> </ng-bind-html>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--INVESTMENTS DONE -->
+    <section id="invest-in-progress">
+        <div class="container center-align">
+            <div class="row" text-center>
+                <div class="col-lg-12 text-center">
+                    <h2 class="invest-heading">
+                        <span ng-show="pl">Aktualna oferta</span>
+                        <span ng-show="en">Our offer</span>
+                        <span ng-show="ua">Наша пропозиція</span>
+                    </h2>
+                    <hr/>
+                </div>
+            </div>
+            <div class="col-md-4" ng-repeat="investment in investments" ng-show="investment.done == false">
+                <div class="col-md-12">
+                    <div class="row text-center">
+                        <span>
+                            <a href="{{investment.link}}" target="blank">
+                                <img src="{{investment.logo}}" class="img-thumbnail" alt="Logo" height="100" width="300">
+                            </a>
+                        </span>
+                    </div>
+                    <h4 class="service-heading text-center">
+                        <span ng-show="pl">{{investment.name}}</span>
+                        <span ng-show="ua">{{investment.nameUa}}</span>
+                        <span ng-show="en">{{investment.nameEn}}</span>
+                    </h4>
+                    <p class="text-muted text-left">
+                        <span ng-show="pl">{{investment.description}}</span>
+                        <span ng-show="ua">{{investment.descriptionUa}}</span>
+                        <span ng-show="en">{{investment.descriptionEn}}</span>
+                    </p>
+                    <a href="{{investment.image}}" target="blank">
+                        <div class="row text-center">
+                            <button type="button" class="btn btn-primary">
+                                <span ng-show="pl">Zdjęcie</span>
+                                <span ng-show="en">Photo</span>
+                                <span ng-show="ua">Фото</span>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--INVESTMENTS IN PROGRESS -->
+    <section id="invest-done">
+        <div class="container center-align">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="invest-heading">
+                        <span ng-show="pl">Inwestycje zrealizowane</span>
+                        <span ng-show="en">Investments done</span>
+                        <span ng-show="ua">Завершені проекти</span>
+                    </h2>
+                    <hr/>
+                </div>
+            </div>
+
+            <div class="col-md-4" ng-repeat="investment in investments" ng-show="investment.done == true">
+                <div class="col-md-12">
+                    <div class="row text-center">
+                        <span>
+                                    <a href="{{investment.link}}" target="blank">
+                                        <img src="{{investment.logo}}" class="img-thumbnail" alt="Logo" height="100" width="300">
+                                    </a>
+                                </span>
+                    </div>
+                    <h4 class="service-heading text-center">
+                        <span ng-show="pl">{{investment.name}}</span>
+                        <span ng-show="ua">{{investment.nameUa}}</span>
+                        <span ng-show="en">{{investment.nameEn}}</span>
+                    </h4>
+                    <p class="text-muted text-left">
+                        <span ng-show="pl">{{investment.description}}</span>
+                        <span ng-show="ua">{{investment.descriptionUa}}</span>
+                        <span ng-show="en">{{investment.descriptionEn}}</span>
+                    </p>
+                    <a href="{{investment.image}}" target="blank">
+                        <div class="row text-center">
+                            <button type="button" class="btn btn-primary">
+                                        <span ng-show="pl">Zdjęcie</span>
+                                        <span ng-show="en">Photo</span>
+                                        <span ng-show="ua">Фото</span>
+                                    </button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+
+    <!-- NEWS -->
+    <section id="news">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">
+                        <span ng-show="pl">Aktualności</span>
+                        <span ng-show="en">News</span>
+                        <span ng-show="ua">Новини</span>
+                    </h2>
+                    <h3 class="section-subheading text-muted">
+                        <span ng-show="pl">Ostatnio dodane...</span>
+                        <span ng-show="en">Last updates...</span>
+                        <span ng-show="ua">Нещодавно додані...</span>
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li ng-repeat="lastArticle in lastNews">
+                            <div class="timeline-image">
+                                <a href="{{lastArticle.image}}">
+                                    <img class="timeline-image-circle" src="{{lastArticle.image}}" alt="">
+                                </a>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4> {{lastArticle.creationDate | date:'yyyy-MM-dd HH:mm'}}</h4>
+                                    <h4 class="subheading">
+                                        <span ng-show="pl">{{lastArticle.title}}</span>
+                                        <span ng-show="ua">{{lastArticle.titleUa}}</span>
+                                        <span ng-show="en">{{lastArticle.titleEn}}</span>
+                                    </h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">
+                                        <span ng-show="pl">{{lastArticle.text}}</span>
+                                        <span ng-show="en">{{lastArticle.textEn}}</span>
+                                        <span ng-show="ua">{{lastArticle.textUa}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>
+                                    <a href="#newsModal" class="portfolio-link" data-toggle="modal" style="color: white">
+                                            <span ng-show="pl">Przejd<br>Dalej</span>
+                                            <span ng-show="en">More<br>News</span>
+                                            <span ng-show="ua">Більше<br>Новин</span>
+                                        </a>
+                                </h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">
+                        <span ng-show="pl">Skontaktuj się z nami</span> 
+                        <span ng-show="en">Contact us</span>
+                        <span ng-show="ua">Зворотній зв'язок</span>
+                    </h2>
+                    <h3 class="section-heading text-muted">
+                            <span ng-show="pl">Adres:</span>
+                            <span ng-show="en">Adress:</span>
+                            <span ng-show="ua">Адреса:</span>
+                        <a class="contact">{{settings.address}}</a>
+                        <a class="contact" target="blank" href="https://www.google.pl/maps/place/Invest+House+SA/@50.0953907,19.9513006,17z/data=!3m1!4b1!4m5!3m4!1s0x47165af9729daddb:0xf43a9d37692e86a1!8m2!3d50.0953907!4d19.9534893">
+                            <i class="fas fa-map-marker"></i>
+                        </a>
+                    </h3>
+                    <h3 class="section-heading text-muted">
+                            <span ng-show="pl">Telefony:</span>
+                            <span ng-show="en">Phones:</span>
+                            <span ng-show="ua">Телефони:</span>
+                        <a class="contact">{{settings.phones}}</a>
+                    </h3>
+                    <h3 class="section-heading text-muted">
+                            <span ng-show="pl || en">Fax:</span>
+                            <span ng-show="ua">Факс:</span>
+                        <a class="contact">{{settings.fax}}</a>
+                    </h3>
+                    <h3 class="section-heading text-muted">Email:
+                        <a class="contact" href="mailto:{{settings.email}}">{{settings.email}}</a>
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div>Invest House S.A.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- News Modal -->
+    <div class="portfolio-modal modal fade" id="newsModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="modal-body">
+                            <ul class="timeline">
+                                <li ng-repeat="article in allNews">
+                                    <div class="timeline-image">
+                                        <a href="{{article.image}}" class="portfolio-link" data-toggle="modal">
+                                            <img class="timeline-image-circle" src="{{article.image}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4> {{article.creationDate | date:'yyyy-MM-dd HH:mm'}}</h4>
+                                            <h4 class="subheading">{{article.title}}</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p class="text-muted">{{article.text}}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                <i class="fa fa-times"></i>Zamknij</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script src="lib/js/angular-route.min.js"></script>
+    <script src="lib/js/angular-sanitize.min.js"></script>
+
+    <script src="app.js"></script>
+
+    <script src="controllers/MainController.js"></script>
+    <script src="services/investmentService.js"></script>
+    <script src="services/generalSettingsService.js"></script>
+    <script src="services/newsService.js"></script>
+    <script src="services/contentService.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb"
+        crossorigin="anonymous"></script>
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+</body>
+
+</html>
